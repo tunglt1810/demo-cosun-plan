@@ -81,46 +81,42 @@
 
 **3. Backend Lead / System Architect** - 1 người (Senior)
 - **Trách nhiệm:**
-  - System architecture design
-  - Database schema design
-  - API design (RESTful hoặc GraphQL)
-  - Microservices setup (nếu cần)
-  - Code review & mentoring
-  - DevOps setup (CI/CD, deployment)
-  - Security implementation
+  - System architecture design (Scalable Microservices/Modular Monolith)
+  - Database schema design (PostgreSQL)
+  - API design (RESTful + Echo Middleware)
+  - Code review & mentoring (Go best practices)
+  - DevOps setup (GitHub Actions, Docker, Railway/Cloud Run)
+  - Security implementation (JWT, Rate limiting)
 - **Tech stack:**
-  - Node.js + Express hoặc NestJS
-  - PostgreSQL database
+  - Golang (Go 1.22+)
+  - Echo Framework
+  - PostgreSQL (Neon/Supabase)
+  - SQLC / GORM
   - Redis caching
-  - AWS/GCP cloud services
-  - Docker containerization
 - **Commitment:** Full-time (8-10 tuần)
 - **Deliverables:**
-  - Architecture document
-  - API documentation
+  - Architecture document & Swagger API Docs
   - Database ERD
-  - Deployment pipelines
+  - Deployment pipelines (CI/CD)
 
 **4. Backend Developer** - 1-2 người (Mid-level)
 - **Trách nhiệm:**
-  - Implement API endpoints
-  - Database operations & migrations
-  - Third-party integrations:
-    - Swiss Ephemeris API
-    - Stripe/PayPal payment
-    - Social login (Google, Facebook, Apple)
-    - Push notification service (Firebase)
-    - SMS/Email services
-  - Unit testing & integration testing
-  - API performance optimization
+  - Implement API endpoints với Echo
+  - Database migrations & optimizations
+  - Third-party Go SDK integrations:
+    - Swiss Ephemeris (CGO/Wrapper)
+    - Stripe Go SDK
+    - Social login (OIDC/OAuth2)
+    - Firebase Admin SDK (Go)
+    - OpenAI API Go Client
+  - Unit testing (testify) & integration testing
 - **Commitment:** Full-time (8-10 tuần)
 - **Key modules:**
-  - User authentication service
-  - Birth chart calculation engine
-  - Horoscope generation service (AI integration)
-  - Friend management & compatibility
-  - Payment & subscription management
-  - Notification service
+  - User auth (Echo middleware)
+  - Calculation engine (Go routines for speed)
+  - AI Horoscope worker (Async processing)
+  - Friend compatibility logic (Clean Architecture layers)
+  - Subscription handler (Stripe webhooks)
 
 ---
 
@@ -200,22 +196,22 @@
 
 ### Timeline: 8-10 tuần (2 tháng)
 
-| Module | Backend (person-days) | iOS (person-days) | Android (person-days) | Design (person-days) | Total Effort |
-|--------|----------------------|-------------------|----------------------|---------------------|-------------|
-| **Setup & Architecture** | 5 | 2 | 2 | 3 | 12 days |
-| **Authentication & Onboarding** | 8 | 5 | 5 | 5 | 23 days |
-| **User Profile** | 4 | 3 | 3 | 3 | 13 days |
-| **Birth Chart Calculation** | 10 | - | - | - | 10 days |
-| **Birth Chart Display** | 3 | 8 | 8 | 8 | 27 days |
-| **Horoscope Engine** | 10 | 5 | 5 | 4 | 24 days |
-| **Friend & Compatibility** | 8 | 6 | 6 | 5 | 25 days |
-| **Push Notifications** | 5 | 3 | 3 | 2 | 13 days |
-| **Payment & Subscriptions** | 6 | 4 | 4 | 2 | 16 days |
-| **Admin Dashboard (Basic)** | 8 | - | - | 3 | 11 days |
-| **Testing & Bug Fixes** | 5 | 8 | 8 | 2 | 23 days |
-| **Polish & Optimization** | 3 | 4 | 4 | 3 | 14 days |
-| **App Store Submission** | 1 | 3 | 3 | 2 | 9 days |
-| **TOTAL** | **76 days** | **51 days** | **51 days** | **42 days** | **220 person-days** |
+| Module                          | Backend (person-days) | iOS (person-days) | Android (person-days) | Design (person-days) | Total Effort        |
+| ------------------------------- | --------------------- | ----------------- | --------------------- | -------------------- | ------------------- |
+| **Setup & Architecture**        | 5                     | 2                 | 2                     | 3                    | 12 days             |
+| **Authentication & Onboarding** | 8                     | 5                 | 5                     | 5                    | 23 days             |
+| **User Profile**                | 4                     | 3                 | 3                     | 3                    | 13 days             |
+| **Birth Chart Calculation**     | 10                    | -                 | -                     | -                    | 10 days             |
+| **Birth Chart Display**         | 3                     | 8                 | 8                     | 8                    | 27 days             |
+| **Horoscope Engine**            | 10                    | 5                 | 5                     | 4                    | 24 days             |
+| **Friend & Compatibility**      | 8                     | 6                 | 6                     | 5                    | 25 days             |
+| **Push Notifications**          | 5                     | 3                 | 3                     | 2                    | 13 days             |
+| **Payment & Subscriptions**     | 6                     | 4                 | 4                     | 2                    | 16 days             |
+| **Admin Dashboard (Basic)**     | 8                     | -                 | -                     | 3                    | 11 days             |
+| **Testing & Bug Fixes**         | 5                     | 8                 | 8                     | 2                    | 23 days             |
+| **Polish & Optimization**       | 3                     | 4                 | 4                     | 3                    | 14 days             |
+| **App Store Submission**        | 1                     | 3                 | 3                     | 2                    | 9 days              |
+| **TOTAL**                       | **76 days**           | **51 days**       | **51 days**           | **42 days**          | **220 person-days** |
 
 ---
 
@@ -265,45 +261,45 @@
 
 **Giả định:** Outsource/contract hoặc in-house team tại VN
 
-| Role | Level | Monthly Rate (USD) | Duration | Total Cost |
-|------|-------|-------------------|----------|-----------|
-| **Product Manager** | Mid-Senior | $2,500 - $3,500 | 2.5 months | $6,250 - $8,750 |
-| **UI/UX Designer** | Mid-Senior | $2,000 - $3,000 | 2 months | $4,000 - $6,000 |
-| **Backend Lead** | Senior | $3,000 - $4,000 | 2.5 months | $7,500 - $10,000 |
-| **Backend Developer** | Mid-level | $2,000 - $2,800 | 2.5 months | $5,000 - $7,000 |
-| **iOS Developer** | Mid-Senior | $2,500 - $3,500 | 2.5 months | $6,250 - $8,750 |
-| **Android Developer** | Mid-Senior | $2,500 - $3,500 | 2.5 months | $6,250 - $8,750 |
-| **QA Engineer** | Mid-level | $1,500 - $2,000 | 2 months | $3,000 - $4,000 |
-| **DevOps (Part-time)** | Senior | $3,500 - $4,500 | 0.5 months | $1,750 - $2,250 |
-| **Astrology Consultant** | Expert | $100/hour | 15 hours | $1,500 |
-| | | | **SUBTOTAL** | **$41,500 - $56,500** |
+| Role                     | Level      | Monthly Rate (USD) | Duration     | Total Cost            |
+| ------------------------ | ---------- | ------------------ | ------------ | --------------------- |
+| **Product Manager**      | Mid-Senior | $2,500 - $3,500    | 2.5 months   | $6,250 - $8,750       |
+| **UI/UX Designer**       | Mid-Senior | $2,000 - $3,000    | 2 months     | $4,000 - $6,000       |
+| **Backend Lead**         | Senior     | $3,000 - $4,000    | 2.5 months   | $7,500 - $10,000      |
+| **Backend Developer**    | Mid-level  | $2,000 - $2,800    | 2.5 months   | $5,000 - $7,000       |
+| **iOS Developer**        | Mid-Senior | $2,500 - $3,500    | 2.5 months   | $6,250 - $8,750       |
+| **Android Developer**    | Mid-Senior | $2,500 - $3,500    | 2.5 months   | $6,250 - $8,750       |
+| **QA Engineer**          | Mid-level  | $1,500 - $2,000    | 2 months     | $3,000 - $4,000       |
+| **DevOps (Part-time)**   | Senior     | $3,500 - $4,500    | 0.5 months   | $1,750 - $2,250       |
+| **Astrology Consultant** | Expert     | $100/hour          | 15 hours     | $1,500                |
+|                          |            |                    | **SUBTOTAL** | **$41,500 - $56,500** |
 
 ### 5.2 Chi phí công nghệ & dịch vụ (2 tháng MVP)
 
-| Item | Provider | Monthly Cost | Total (2 months) |
-|------|----------|-------------|-----------------|
-| **Cloud Hosting** | AWS/GCP (Free tier initially) | $0 - $50 | $0 - $100 |
-| **Database** | Supabase / Neon (Free tier) | $0 | $0 |
-| **API Services** | Swiss Ephemeris (Self-hosted free) | $0 | $0 |
-| **AI API** | OpenAI GPT-4 | $50 - $200 | $100 - $400 |
-| **Push Notifications** | Firebase (Free tier) | $0 | $0 |
-| **SMS/Email** | Twilio/SendGrid (Free tier) | $0 - $20 | $0 - $40 |
-| **Payment Gateway** | Stripe (transaction fees only) | $0 setup | $0 |
-| **Apple Developer** | Annual fee | $99/year | $99 |
-| **Google Play** | One-time fee | $25 | $25 |
-| **Domain & SSL** | Cloudflare/Namecheap | $15 | $30 |
-| **Development Tools** | GitHub, Figma, Jira | $100 | $200 |
-| **Testing Devices** | BrowserStack or physical | $100 | $200 |
-| | | **SUBTOTAL** | **$1,094 - $1,194** |
+| Item                   | Provider                           | Monthly Cost | Total (2 months)    |
+| ---------------------- | ---------------------------------- | ------------ | ------------------- |
+| **Cloud Hosting**      | AWS/GCP (Free tier initially)      | $0 - $50     | $0 - $100           |
+| **Database**           | Supabase / Neon (Free tier)        | $0           | $0                  |
+| **API Services**       | Swiss Ephemeris (Self-hosted free) | $0           | $0                  |
+| **AI API**             | OpenAI GPT-4                       | $50 - $200   | $100 - $400         |
+| **Push Notifications** | Firebase (Free tier)               | $0           | $0                  |
+| **SMS/Email**          | Twilio/SendGrid (Free tier)        | $0 - $20     | $0 - $40            |
+| **Payment Gateway**    | Stripe (transaction fees only)     | $0 setup     | $0                  |
+| **Apple Developer**    | Annual fee                         | $99/year     | $99                 |
+| **Google Play**        | One-time fee                       | $25          | $25                 |
+| **Domain & SSL**       | Cloudflare/Namecheap               | $15          | $30                 |
+| **Development Tools**  | GitHub, Figma, Jira                | $100         | $200                |
+| **Testing Devices**    | BrowserStack or physical           | $100         | $200                |
+|                        |                                    | **SUBTOTAL** | **$1,094 - $1,194** |
 
 ### 5.3 Tổng chi phí MVP (2-2.5 tháng)
 
-| Category | Low Estimate | High Estimate |
-|----------|-------------|---------------|
-| **Personnel** | $41,500 | $56,500 |
-| **Technology & Services** | $1,094 | $1,194 |
-| **Contingency (10%)** | $4,260 | $5,770 |
-| **GRAND TOTAL** | **$46,854** | **$63,464** |
+| Category                  | Low Estimate | High Estimate |
+| ------------------------- | ------------ | ------------- |
+| **Personnel**             | $41,500      | $56,500       |
+| **Technology & Services** | $1,094       | $1,194        |
+| **Contingency (10%)**     | $4,260       | $5,770        |
+| **GRAND TOTAL**           | **$46,854**  | **$63,464**   |
 
 **Trung bình:** ~$55,000 cho MVP 2 tháng
 
@@ -313,16 +309,16 @@
 
 ### 6.1 Maintenance & Operations (Monthly sau launch)
 
-| Item | Monthly Cost |
-|------|-------------|
-| **Cloud Hosting** (1000-5000 users) | $100 - $300 |
-| **Database** (scaled tier) | $50 - $150 |
-| **AI API Credits** (GPT-4 horoscopes) | $200 - $500 |
-| **Push Notifications** (scaled) | $50 - $100 |
-| **SMS/Email** (for notifications) | $50 - $150 |
-| **Monitoring & Analytics** | $50 - $100 |
-| **Customer Support Tools** | $50 - $100 |
-| **TOTAL Monthly Ops** | **$550 - $1,400** |
+| Item                                  | Monthly Cost      |
+| ------------------------------------- | ----------------- |
+| **Cloud Hosting** (1000-5000 users)   | $100 - $300       |
+| **Database** (scaled tier)            | $50 - $150        |
+| **AI API Credits** (GPT-4 horoscopes) | $200 - $500       |
+| **Push Notifications** (scaled)       | $50 - $100        |
+| **SMS/Email** (for notifications)     | $50 - $150        |
+| **Monitoring & Analytics**            | $50 - $100        |
+| **Customer Support Tools**            | $50 - $100        |
+| **TOTAL Monthly Ops**                 | **$550 - $1,400** |
 
 ### 6.2 Ongoing Development (Post-MVP)
 
@@ -338,25 +334,25 @@
 
 ### 6.3 Marketing & Growth (Tháng 3-6)
 
-| Activity | Cost Estimate |
-|----------|--------------|
-| **App Store Optimization (ASO)** | $500 - $1,000 one-time |
-| **Social Media Ads** (Meta/TikTok) | $1,000 - $3,000/month |
-| **Influencer Marketing** | $500 - $2,000/campaign |
-| **Content Marketing** (blog, SEO) | $500 - $1,500/month |
-| **PR & Press Release** | $500 - $1,000 one-time |
-| **TOTAL Marketing (3 months)** | **$5,000 - $15,000** |
+| Activity                           | Cost Estimate          |
+| ---------------------------------- | ---------------------- |
+| **App Store Optimization (ASO)**   | $500 - $1,000 one-time |
+| **Social Media Ads** (Meta/TikTok) | $1,000 - $3,000/month  |
+| **Influencer Marketing**           | $500 - $2,000/campaign |
+| **Content Marketing** (blog, SEO)  | $500 - $1,500/month    |
+| **PR & Press Release**             | $500 - $1,000 one-time |
+| **TOTAL Marketing (3 months)**     | **$5,000 - $15,000**   |
 
 ---
 
 ## 7. TÓM TẮT CHI PHÍ 6 THÁNG
 
-| Phase | Timeline | Cost Range |
-|-------|----------|-----------|
-| **MVP Development** | Month 1-2 | $46,854 - $63,464 |
-| **Launch & Initial Operations** | Month 3 | $3,750 - $5,800 |
-| **Growth & Iteration** | Month 4-6 | $12,000 - $18,000 |
-| **TOTAL 6-Month Budget** | | **$62,604 - $87,264** |
+| Phase                           | Timeline  | Cost Range            |
+| ------------------------------- | --------- | --------------------- |
+| **MVP Development**             | Month 1-2 | $46,854 - $63,464     |
+| **Launch & Initial Operations** | Month 3   | $3,750 - $5,800       |
+| **Growth & Iteration**          | Month 4-6 | $12,000 - $18,000     |
+| **TOTAL 6-Month Budget**        |           | **$62,604 - $87,264** |
 
 ---
 
@@ -364,13 +360,13 @@
 
 ### 8.1 Rủi ro có thể xảy ra
 
-| Risk | Impact | Mitigation | Buffer Needed |
-|------|--------|-----------|---------------|
-| **Scope creep** | +20% timeline | Strict MVP scope, PM discipline | +$8,000 |
-| **Technical complexity** (chart calc) | +2 weeks | Early POC, expert consultation | +$6,000 |
-| **App store rejection** | +1-2 weeks | Follow guidelines strictly, legal review | +$2,000 |
-| **Key person leaves** | +2-3 weeks | Documentation, knowledge transfer | +$5,000 |
-| **API rate limits/costs** | +$200/month | Efficient caching, free tiers first | +$1,000 |
+| Risk                                  | Impact        | Mitigation                               | Buffer Needed |
+| ------------------------------------- | ------------- | ---------------------------------------- | ------------- |
+| **Scope creep**                       | +20% timeline | Strict MVP scope, PM discipline          | +$8,000       |
+| **Technical complexity** (chart calc) | +2 weeks      | Early POC, expert consultation           | +$6,000       |
+| **App store rejection**               | +1-2 weeks    | Follow guidelines strictly, legal review | +$2,000       |
+| **Key person leaves**                 | +2-3 weeks    | Documentation, knowledge transfer        | +$5,000       |
+| **API rate limits/costs**             | +$200/month   | Efficient caching, free tiers first      | +$1,000       |
 
 **Recommended total buffer:** 15-20% = $10,000 - $15,000
 

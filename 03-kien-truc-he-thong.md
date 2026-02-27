@@ -58,17 +58,17 @@
 
 **Option A: Native Development (Recommended cho performance)**
 
-| Platform | Language | UI Framework | Key Libraries |
-|----------|----------|--------------|---------------|
-| **iOS** | Swift 5.9+ | SwiftUI + UIKit | Alamofire, Kingfisher, Charts |
+| Platform    | Language    | UI Framework    | Key Libraries                  |
+| ----------- | ----------- | --------------- | ------------------------------ |
+| **iOS**     | Swift 5.9+  | SwiftUI + UIKit | Alamofire, Kingfisher, Charts  |
 | **Android** | Kotlin 1.9+ | Jetpack Compose | Retrofit, Coil, MPAndroidChart |
 
 **Option B: Cross-platform (Recommended cho budget)**
 
-| Framework | Language | Advantages | Disadvantages |
-|-----------|----------|------------|---------------|
-| **React Native** | JavaScript/TypeScript | Large community, Expo, Fast development | Performance issues, Native modules needed |
-| **Flutter** | Dart | Excellent performance, Beautiful UI, Single codebase | Larger app size, Learning curve |
+| Framework        | Language              | Advantages                                           | Disadvantages                             |
+| ---------------- | --------------------- | ---------------------------------------------------- | ----------------------------------------- |
+| **React Native** | JavaScript/TypeScript | Large community, Expo, Fast development              | Performance issues, Native modules needed |
+| **Flutter**      | Dart                  | Excellent performance, Beautiful UI, Single codebase | Larger app size, Learning curve           |
 
 **Khuyến nghị:** React Native cho MVP nếu budget hạn chế, Native nếu muốn performance tốt nhất.
 
@@ -77,37 +77,34 @@
 ### 1.2 Backend
 
 **Core Stack:**
-- **Runtime:** Node.js 20 LTS (hoặc Python 3.11 nếu team có expertise)
-- **Framework:** 
-  - **NestJS** (TypeScript) - Recommended cho structure tốt
-  - **Express.js** (Alternative - lighter weight)
-  - **FastAPI** (Python alternative)
-- **API Style:** RESTful API (GraphQL optional cho advanced features)
-- **Authentication:** JWT + OAuth2 (Passport.js / NextAuth)
-- **ORM:** Prisma (TypeScript) hoặc TypeORM
+- **Runtime:** Go 1.22+ (Golang)
+- **Framework:** **Echo Framework** (High performance, minimalist)
+- **API Style:** RESTful API (gRPC cho internal services nếu cần)
+- **Authentication:** JWT (Golang-jwt) + OAuth2
+- **ORM/Query Builder:** SQLC (Type-safe) hoặc GORM (Feature-rich)
 
 **Key Backend Modules:**
 
-```typescript
-// Example structure với NestJS
-src/
-├── modules/
-│   ├── auth/                 // Authentication & authorization
-│   ├── users/                // User management
-│   ├── charts/               // Birth chart calculations
-│   │   ├── swiss-ephemeris/  // Swiss Ephemeris wrapper
-│   │   └── calculations/     // Zodiac logic
-│   ├── horoscopes/           // Daily horoscope generation
-│   │   └── ai-engine/        // OpenAI integration
-│   ├── social/               // Friends & compatibility
-│   ├── notifications/        // Push notifications
-│   ├── payments/             // Stripe integration
-│   └── content/              // CMS & content management
-├── common/
-│   ├── guards/               // Auth guards
-│   ├── interceptors/         // Logging, transforms
-│   └── filters/              // Error handling
-└── config/                   // Environment configs
+```go
+// Example project structure với Echo Framework (Clean Architecture)
+internal/
+├── auth/                 // Middleware & Auth logic
+├── users/                // User domain handlers
+├── charts/               // Birth chart calculations
+│   ├── astronomical/     // Swiss Ephemeris wrapper (CGO)
+│   └── service/          // Zodiac business logic
+├── horoscopes/           // Daily horoscope generation
+│   └── ai/               // OpenAI client
+├── social/               // Friends & compatibility
+├── notifications/        // Push notifications (FCM)
+├── payments/             // Stripe SDK
+└── content/              // CMS & content management
+pkg/
+├── db/                   // Postgres driver (pgx/sqlc)
+├── logger/               // Uber-zap / Zerolog
+└── server/               // Echo server configuration & routes
+cmd/
+└── api/                  // Application entry point
 ```
 
 ---
@@ -144,16 +141,16 @@ subscriptions (id, user_id, plan_type, status, stripe_id, expires_at)
 
 ### 1.4 Third-party Integrations
 
-| Service | Purpose | Provider Options | Cost |
-|---------|---------|-----------------|------|
-| **Astronomical Data** | Birth chart calculations | Swiss Ephemeris (self-hosted), NASA Horizons | Free |
-| **AI Content** | Horoscope generation | OpenAI GPT-4, Anthropic Claude | $0.03/1K tokens |
-| **Push Notifications** | Daily alerts | Firebase Cloud Messaging, OneSignal | Free tier: 10K/month |
-| **SMS/Email** | OTP, newsletters | Twilio, SendGrid | Free tier: 100 emails/day |
-| **Payment** | Subscriptions | Stripe, PayPal | 2.9% + $0.30/transaction |
-| **Analytics** | User behavior | Mixpanel, Amplitude | Free tier: 100K events/month |
-| **Crash Reporting** | Error tracking | Sentry, Firebase Crashlytics | Free tier: 5K errors/month |
-| **Social Login** | OAuth providers | Google, Facebook, Apple | Free |
+| Service                | Purpose                  | Provider Options                             | Cost                         |
+| ---------------------- | ------------------------ | -------------------------------------------- | ---------------------------- |
+| **Astronomical Data**  | Birth chart calculations | Swiss Ephemeris (self-hosted), NASA Horizons | Free                         |
+| **AI Content**         | Horoscope generation     | OpenAI GPT-4, Anthropic Claude               | $0.03/1K tokens              |
+| **Push Notifications** | Daily alerts             | Firebase Cloud Messaging, OneSignal          | Free tier: 10K/month         |
+| **SMS/Email**          | OTP, newsletters         | Twilio, SendGrid                             | Free tier: 100 emails/day    |
+| **Payment**            | Subscriptions            | Stripe, PayPal                               | 2.9% + $0.30/transaction     |
+| **Analytics**          | User behavior            | Mixpanel, Amplitude                          | Free tier: 100K events/month |
+| **Crash Reporting**    | Error tracking           | Sentry, Firebase Crashlytics                 | Free tier: 5K errors/month   |
+| **Social Login**       | OAuth providers          | Google, Facebook, Apple                      | Free                         |
 
 ---
 
@@ -447,41 +444,43 @@ Total monthly cost: ~$50-150 (mainly AI)
 
 ---
 
-**Stack B: Custom Backend (More Control)**
+**Stack B: Custom Go (Echo) Backend**
 
 ```
 Frontend: React Native or Flutter
-Backend: Node.js (NestJS) on Railway ($5/month free credit)
+Backend: Golang (Echo Framework) on Railway ($5/month free credit)
 Database: Neon Postgres (0.5GB)
 Storage: Cloudflare R2 (10GB)
 Cache: Upstash Redis (10K commands/day free)
-Auth: Custom JWT + OAuth (Passport.js)
+Auth: Custom JWT + OAuth (Golang-jwt)
 AI: OpenAI GPT-4o-mini
 Push: OneSignal (10K subscribers)
 Email: SendGrid (100/day)
 Analytics: PostHog
-Monitoring: Sentry
+Monitoring: Sentry (Go SDK)
 
 Total monthly cost: ~$50-200
 ```
 
 **Pros:**
-- Full control over backend logic
-- Easier to customize
-- No BaaS limitations
+- Echo is minimalist, very fast and widely supported
+- Easy to build concurrent & scalable systems
+- Self-contained binary (easy deployment)
 
 **Cons:**
-- More backend development work
+- Longer development time vs BaaS (Supabase)
+- Steep learning curve for junior devs
 - Railway credits run out with high traffic
-- More maintenance needed
+- More maintenance needed v.s Supabase
+```
 
 ---
 
-**Stack C: Native Apps (Premium Quality)**
+**Stack C: Native Apps & Go Microservices (Premium Quality)**
 
 ```
 Frontend: Swift (iOS) + Kotlin (Android)
-Backend: Node.js (NestJS) on Render
+Backend: Golang Microservices on Google Cloud Run
 Database: Supabase or Neon Postgres
 Storage: Cloudflare R2
 Auth: Firebase Auth
@@ -491,7 +490,7 @@ Payment: Stripe
 Analytics: Mixpanel
 Monitoring: Sentry + Firebase Crashlytics
 
-Total monthly cost: ~$100-300
+Total monthly cost: ~$150-400
 ```
 
 **Pros:**
@@ -510,19 +509,19 @@ Total monthly cost: ~$100-300
 
 **🎯 RECOMMENDED STACK (Balanced):**
 
-| Component | Service | Why |
-|-----------|---------|-----|
-| **Mobile App** | **React Native + Expo** | Cross-platform, faster MVP, one codebase |
-| **Backend** | **Supabase** | BaaS giảm development time 40%, auth built-in, Postgres powerful |
-| **Database** | **Supabase Postgres** | Included, row-level security, auto REST API |
-| **Storage** | **Cloudflare R2** | 10GB free, zero egress fees |
-| **AI Engine** | **OpenAI GPT-4o-mini** | Best price/performance ($0.15 per 1M tokens) |
-| **Push Notifications** | **Firebase Cloud Messaging** | Unlimited free, reliable |
-| **Email** | **Brevo** | 300/day free (enough for MVP) |
-| **Analytics** | **PostHog** | 1M events free, includes session replay |
-| **Monitoring** | **Sentry** | 5K errors free, great DX |
-| **Payment** | **Stripe** | Industry standard, great API |
-| **Admin Dashboard** | **React + Vercel** | 100GB bandwidth free |
+| Component              | Service                      | Why                                                              |
+| ---------------------- | ---------------------------- | ---------------------------------------------------------------- |
+| **Mobile App**         | **React Native + Expo**      | Cross-platform, faster MVP, one codebase                         |
+| **Backend**            | **Supabase**                 | BaaS giảm development time 40%, auth built-in, Postgres powerful |
+| **Database**           | **Supabase Postgres**        | Included, row-level security, auto REST API                      |
+| **Storage**            | **Cloudflare R2**            | 10GB free, zero egress fees                                      |
+| **AI Engine**          | **OpenAI GPT-4o-mini**       | Best price/performance ($0.15 per 1M tokens)                     |
+| **Push Notifications** | **Firebase Cloud Messaging** | Unlimited free, reliable                                         |
+| **Email**              | **Brevo**                    | 300/day free (enough for MVP)                                    |
+| **Analytics**          | **PostHog**                  | 1M events free, includes session replay                          |
+| **Monitoring**         | **Sentry**                   | 5K errors free, great DX                                         |
+| **Payment**            | **Stripe**                   | Industry standard, great API                                     |
+| **Admin Dashboard**    | **React + Vercel**           | 100GB bandwidth free                                             |
 
 **Total Monthly Cost:**
 - Development phase: ~$50-100 (mainly AI)

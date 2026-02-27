@@ -29,36 +29,39 @@ Hoàn thành! Tôi đã tạo xong **5 file markdown** chi tiết cho kế hoạ
 
 ### **2. Ước Lượng Nỗ Lực** (`02-uoc-luong-no-luc.md`)
 
-- **Team:** 7 người (PM, Designer, Backend Lead, Backend Dev, iOS Dev, Android Dev, QA)
+- **Team:** 7-8 người (PM, Designer, Backend Lead (Go/Echo), Backend Dev (Go), iOS Dev, Android Dev, QA)
 - **Timeline:** 8-10 tuần
-- **Budget:** \$46,000 - \$63,000 cho MVP
-- Chi tiết phân công từng role
-- Breakdown effort theo module
-- Chi phí theo thời gian (MVP + 6 tháng maintain)
+- **Budget:** \$35,000 - \$55,000 cho MVP
+- Chi tiết phân công từng role (tập trung vào kỹ năng Golang/Echo)
+- Breakdown effort theo mô hình Modular Monolith
+- Chi phí tối ưu hóa nhân sự và hạ tầng
 
 
 ### **3. Kiến Trúc Hệ Thống** (`03-kien-truc-he-thong.md`)
 
-- Tech stack chi tiết (Frontend, Backend, Database)
+- Tech stack chi tiết:
+    - **Backend:** Golang với Echo Framework (High performance)
+    - **Database:** PostgreSQL (Neon/Supabase)
+    - **Frontend:** React Native (hoặc Native iOS/Android)
 - **Dịch vụ cloud MIỄN PHÍ** đã gợi ý:
-    - **Supabase** (Backend as a Service - FREE tier)
+    - **Railway/Render** (Hosting backend Go)
+    - **Supabase/Neon** (Postgres DB free tier)
     - **Cloudflare R2** (Storage 10GB free)
     - **Firebase Cloud Messaging** (Push notifications unlimited)
     - **OpenAI GPT-4o-mini** (~\$50-100/month cho AI)
-    - **Railway/Render** (Hosting free tier)
-- Architecture diagram
+- Architecture diagram (Clean Architecture)
 - Security \& compliance
-- Scalability plan
+- Scalability plan (tận dụng tốc độ của Go)
 
 
 ### **4. Plan Triển Khai 8 Tuần** (`04-plan-trien-khai-8-tuan.md`)
 
-- **Sprint 1 (Week 1-2):** Foundation \& Setup
-- **Sprint 2 (Week 3-4):** Core Features (Birth Chart + AI Horoscope)
-- **Sprint 3 (Week 5-6):** Social Features \& Monetization
-- **Sprint 4 (Week 7-8):** Polish, Testing \& Launch
-- Chi tiết từng ngày làm việc
-- Risk mitigation plan
+- **Sprint 1 (Week 1-2):** Foundation \& Go Backend Setup (Echo Framework, Swagger, DB Migrations)
+- **Sprint 2 (Week 3-4):** Core Features (Go Astronomical Engine + AI Horoscope integration)
+- **Sprint 3 (Week 5-6):** Social Features \& Go Microservices logic
+- **Sprint 4 (Week 7-8):** Polish, Load Testing (Go performance) \& Launch
+- Chi tiết từng ngày làm việc phối hợp giữa Mobile và Go Backend
+- Risk mitigation plan đặc thù cho Tech Stack mới
 - Launch readiness checklist
 
 

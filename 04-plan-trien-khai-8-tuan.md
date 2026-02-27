@@ -57,10 +57,12 @@
 
 **Backend Lead Tasks:**
 - [ ] Setup Git repository (GitHub/GitLab)
-- [ ] Define folder structure & coding standards
-- [ ] Setup Supabase project
+- [ ] Define Go project structure (Clean Architecture - internal/pkg/cmd)
+- [ ] Initialize Go modules & Echo framework setup
+- [ ] Setup Dockerfile & basic CI/CD (GitHub Actions)
 - [ ] Database schema design (ERD document)
-- [ ] API endpoint specification document
+- [ ] Setup Neon/Supabase Postgres instances
+- [ ] API endpoint specification (Swagger/OpenAPI)
 
 **Mobile Devs Tasks:**
 - [ ] Setup development environment (Xcode / Android Studio / React Native)
@@ -71,9 +73,9 @@
 
 **DevOps Tasks:**
 - [ ] Setup CI/CD pipeline (GitHub Actions)
-- [ ] Configure staging environment
-- [ ] Setup Sentry error tracking
-- [ ] Configure Firebase project
+- [ ] Configure staging environment (Railway/Render)
+- [ ] Setup Sentry (Go & Mobile SDKs)
+- [ ] Configure Firebase project for push/auth
 
 ---
 
@@ -143,20 +145,20 @@
 #### **Thursday - Friday: User Profile & Onboarding**
 
 **Backend:**
-- [ ] User profile CRUD endpoints
-- [ ] Birth info storage (date, time, location, timezone)
-- [ ] Location geocoding (Google Maps API / Mapbox)
-- [ ] User profile image upload (Cloudflare R2)
+- [ ] Implement database migrations with Go (migrate)
+- [ ] Setup Echo Middleware (Logger, Recovery, CORS)
+- [ ] Implement JWT Auth helper with golang-jwt
+- [ ] Implement User Profile CRUD endpoints
+- [ ] Location geocoding integration (Google Maps Go SDK)
+- [ ] Profile image upload to Cloudflare R2 (S3 Go SDK)
+- [ ] Setup AI Horoscope client (OpenAI Go SDK) for early prototyping
 
 **Mobile:**
-- [ ] Birth info input screens
-  - Date picker (calendar)
-  - Time picker (precise to minute)
-  - Location search & selection (autocomplete)
-- [ ] Profile creation screen
+- [ ] Sign info input screens (date/time/location)
+- [ ] User Profile creation UI
 - [ ] Avatar upload functionality
-- [ ] Onboarding flow completion
-- [ ] Navigate to home after onboarding
+- [ ] Home screen shell & navigation
+- [ ] Basic error handling for API calls
 
 **QA:**
 - [ ] Test authentication flows (all methods)
@@ -793,22 +795,22 @@
 
 ### Development Phase (Week 1-8)
 
-| Week | Focus | Personnel Cost | Tech Cost | Total |
-|------|-------|---------------|-----------|-------|
-| 1-2 | Foundation & Setup | $10,000 | $300 | $10,300 |
-| 3-4 | Core Features | $10,000 | $100 | $10,100 |
-| 5-6 | Social & Monetization | $10,000 | $100 | $10,100 |
-| 7-8 | Polish & Launch | $10,000 | $200 | $10,200 |
-| **TOTAL** | | **$40,000** | **$700** | **$40,700** |
+| Week      | Focus                 | Personnel Cost | Tech Cost | Total       |
+| --------- | --------------------- | -------------- | --------- | ----------- |
+| 1-2       | Foundation & Setup    | $10,000        | $300      | $10,300     |
+| 3-4       | Core Features         | $10,000        | $100      | $10,100     |
+| 5-6       | Social & Monetization | $10,000        | $100      | $10,100     |
+| 7-8       | Polish & Launch       | $10,000        | $200      | $10,200     |
+| **TOTAL** |                       | **$40,000**    | **$700**  | **$40,700** |
 
 ### Post-Launch (Week 9-12)
 
-| Item | Monthly Cost |
-|------|-------------|
-| **Operations** | $200-400 |
-| **Part-time support** (2-3 devs) | $3,000-4,000 |
-| **Marketing** | $1,000-2,000 |
-| **Total/month** | **$4,200-6,400** |
+| Item                             | Monthly Cost     |
+| -------------------------------- | ---------------- |
+| **Operations**                   | $200-400         |
+| **Part-time support** (2-3 devs) | $3,000-4,000     |
+| **Marketing**                    | $1,000-2,000     |
+| **Total/month**                  | **$4,200-6,400** |
 
 ---
 

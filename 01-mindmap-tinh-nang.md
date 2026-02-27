@@ -131,12 +131,12 @@
   - Potential conflicts
   - Growth opportunities
 
-### 4.3 Social Features
+### 4.3 Social Features (Advance)
 - **Friend Feed**
   - Xem horoscope của bạn bè
   - Share & comment
   - React với emoji
-- **Group Chats** (Optional for MVP)
+- **Group Chats**
   - Zodiac-based groups
   - Friend circles
 - **Shareable Content**
@@ -216,12 +216,13 @@
   - Blog post editor
   - Video upload/management
   - Tutorial sequences
-- **Notification Management**
+  - Psychology test
+- **Notification Management** (Advance)
   - Push notification campaigns
   - Segmentation by zodiac sign
   - Analytics tracking
 
-### 7.2 User Management
+### 7.2 User Management (Advance)
 - **Admin Dashboard**
   - User statistics
   - Active users tracking
@@ -236,7 +237,7 @@
   - FAQ management
   - Ticket system
 
-### 7.3 Analytics & Monitoring
+### 7.3 Analytics & Monitoring (Advance)
 - **App Analytics**
   - User engagement metrics
   - Feature usage tracking
@@ -253,7 +254,7 @@
   - User acquisition cost
   - Lifetime value (LTV)
 
-### 7.4 AI Engine Management
+### 7.4 AI Engine Management (Advance)
 - **AI Model Training**
   - Fine-tune GPT models
   - Prompt engineering dashboard
